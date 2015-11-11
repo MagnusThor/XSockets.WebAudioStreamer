@@ -137,7 +137,10 @@
   <ItemGroup>
     <Content Include="packages.config" />
     <Content Include="default.cshtml" />
+    <Content Include="Scripts\MediaSourceChunksPlayer.js" />
+    <Content Include="Scripts\MediaSourceChunksPlayer.min.js" />
     <Content Include="Scripts\XSockets.latest.min.js.map" />
+    <Content Include="Scripts\MediaSourceChunksPlayer.min.js.map" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -149,7 +152,6 @@
     <Content Include="mp3\Glyn R Brown - Rastan.mp3" />
     <Content Include="mp3\machinae supremacy - great gianna sisters.mp3" />
     <Content Include="mp3\Mordi - In Your Bed %28extract%29.mp3" />
-    <Content Include="Scripts\cplayer.js" />
     <Content Include="Scripts\XSockets.latest.js" />
     <Content Include="Scripts\XSockets.latest.min.js" />
     <Content Include="Web.config">
