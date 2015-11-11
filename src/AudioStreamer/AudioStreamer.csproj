@@ -7,13 +7,13 @@
     <ProductVersion>
     </ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
-    <ProjectGuid>{19898167-8219-45CD-986F-78F84CEEBEAE}</ProjectGuid>
+    <ProjectGuid>{2F92D667-20F6-4029-9AB5-00677CFAD8DD}</ProjectGuid>
     <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>AudioStreamer</RootNamespace>
     <AssemblyName>AudioStreamer</AssemblyName>
-    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.5.1</TargetFrameworkVersion>
     <UseIISExpress>true</UseIISExpress>
     <IISExpressSSLPort />
     <IISExpressAnonymousAuthentication />
@@ -45,24 +45,21 @@
     <Reference Include="Microsoft.Owin.Host.SystemWeb">
       <HintPath>..\packages\Microsoft.Owin.Host.SystemWeb.3.0.0\lib\net45\Microsoft.Owin.Host.SystemWeb.dll</HintPath>
     </Reference>
-    <Reference Include="Microsoft.Web.Infrastructure">
-      <HintPath>..\packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
+    <Reference Include="Microsoft.Web.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <Private>True</Private>
+      <HintPath>..\packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
     </Reference>
     <Reference Include="Newtonsoft.Json">
       <HintPath>..\packages\Newtonsoft.Json.6.0.8\lib\net45\Newtonsoft.Json.dll</HintPath>
-      <Private>True</Private>
     </Reference>
     <Reference Include="Owin">
       <HintPath>..\packages\Owin.1.0\lib\net40\Owin.dll</HintPath>
     </Reference>
     <Reference Include="Serilog">
       <HintPath>..\packages\Serilog.1.4.168\lib\net45\Serilog.dll</HintPath>
-      <Private>True</Private>
     </Reference>
     <Reference Include="Serilog.FullNetFx">
       <HintPath>..\packages\Serilog.1.4.168\lib\net45\Serilog.FullNetFx.dll</HintPath>
-      <Private>True</Private>
     </Reference>
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
@@ -73,25 +70,25 @@
     <Reference Include="System.Core" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="System.Web.Extensions" />
-    <Reference Include="System.Web.Helpers">
+    <Reference Include="System.Web.Helpers, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
       <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.2\lib\net45\System.Web.Helpers.dll</HintPath>
-      <Private>True</Private>
     </Reference>
-    <Reference Include="System.Web.Razor">
+    <Reference Include="System.Web.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
       <HintPath>..\packages\Microsoft.AspNet.Razor.3.2.2\lib\net45\System.Web.Razor.dll</HintPath>
-      <Private>True</Private>
     </Reference>
-    <Reference Include="System.Web.WebPages">
+    <Reference Include="System.Web.WebPages, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
       <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.2\lib\net45\System.Web.WebPages.dll</HintPath>
-      <Private>True</Private>
     </Reference>
-    <Reference Include="System.Web.WebPages.Deployment">
+    <Reference Include="System.Web.WebPages.Deployment, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
       <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.2\lib\net45\System.Web.WebPages.Deployment.dll</HintPath>
-      <Private>True</Private>
     </Reference>
-    <Reference Include="System.Web.WebPages.Razor">
+    <Reference Include="System.Web.WebPages.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
       <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.2\lib\net45\System.Web.WebPages.Razor.dll</HintPath>
-      <Private>True</Private>
     </Reference>
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Drawing" />
@@ -101,58 +98,45 @@
     <Reference Include="System.Web.Services" />
     <Reference Include="System.EnterpriseServices" />
     <Reference Include="XSockets.Controllers">
-      <HintPath>..\packages\XSockets.Server.4.1.0\lib\net45\XSockets.Controllers.dll</HintPath>
-      <Private>True</Private>
+      <HintPath>..\packages\XSockets.Server.4.1.0\lib\net451\XSockets.Controllers.dll</HintPath>
     </Reference>
     <Reference Include="XSockets.Core">
-      <HintPath>..\packages\XSockets.Core.4.1.0\lib\net45\XSockets.Core.dll</HintPath>
-      <Private>True</Private>
+      <HintPath>..\packages\XSockets.Core.4.1.0\lib\net451\XSockets.Core.dll</HintPath>
     </Reference>
     <Reference Include="XSockets.Core.Common">
-      <HintPath>..\packages\XSockets.Core.4.1.0\lib\net45\XSockets.Core.Common.dll</HintPath>
-      <Private>True</Private>
+      <HintPath>..\packages\XSockets.Core.4.1.0\lib\net451\XSockets.Core.Common.dll</HintPath>
     </Reference>
     <Reference Include="XSockets.Core.Communication">
-      <HintPath>..\packages\XSockets.Server.4.1.0\lib\net45\XSockets.Core.Communication.dll</HintPath>
-      <Private>True</Private>
+      <HintPath>..\packages\XSockets.Server.4.1.0\lib\net451\XSockets.Core.Communication.dll</HintPath>
     </Reference>
     <Reference Include="XSockets.CustomProtocol">
-      <HintPath>..\packages\XSockets.Core.4.1.0\lib\net45\XSockets.CustomProtocol.dll</HintPath>
-      <Private>True</Private>
+      <HintPath>..\packages\XSockets.Core.4.1.0\lib\net451\XSockets.CustomProtocol.dll</HintPath>
     </Reference>
     <Reference Include="XSockets.Enterprise">
-      <HintPath>..\packages\XSockets.Server.4.1.0\lib\net45\XSockets.Enterprise.dll</HintPath>
-      <Private>True</Private>
+      <HintPath>..\packages\XSockets.Server.4.1.0\lib\net451\XSockets.Enterprise.dll</HintPath>
     </Reference>
     <Reference Include="XSockets.Logger">
-      <HintPath>..\packages\XSockets.Server.4.1.0\lib\net45\XSockets.Logger.dll</HintPath>
-      <Private>True</Private>
+      <HintPath>..\packages\XSockets.Server.4.1.0\lib\net451\XSockets.Logger.dll</HintPath>
     </Reference>
     <Reference Include="XSockets.Owin.Host">
-      <HintPath>..\packages\XSockets.Owin.Host.4.1.0\lib\net45\XSockets.Owin.Host.dll</HintPath>
+      <HintPath>..\packages\XSockets.Owin.Host.4.1.0\lib\net451\XSockets.Owin.Host.dll</HintPath>
     </Reference>
     <Reference Include="XSockets.Plugin.Framework">
-      <HintPath>..\packages\XSockets.Plugin.Framework.4.1.0\lib\net45\XSockets.Plugin.Framework.dll</HintPath>
-      <Private>True</Private>
+      <HintPath>..\packages\XSockets.Plugin.Framework.4.1.0\lib\net451\XSockets.Plugin.Framework.dll</HintPath>
     </Reference>
     <Reference Include="XSockets.Protocol">
-      <HintPath>..\packages\XSockets.Core.4.1.0\lib\net45\XSockets.Protocol.dll</HintPath>
-      <Private>True</Private>
+      <HintPath>..\packages\XSockets.Core.4.1.0\lib\net451\XSockets.Protocol.dll</HintPath>
     </Reference>
     <Reference Include="XSockets.Serialization">
-      <HintPath>..\packages\XSockets.Core.4.1.0\lib\net45\XSockets.Serialization.dll</HintPath>
-      <Private>True</Private>
+      <HintPath>..\packages\XSockets.Core.4.1.0\lib\net451\XSockets.Serialization.dll</HintPath>
     </Reference>
     <Reference Include="XSockets.Server">
-      <HintPath>..\packages\XSockets.Server.4.1.0\lib\net45\XSockets.Server.dll</HintPath>
-      <Private>True</Private>
+      <HintPath>..\packages\XSockets.Server.4.1.0\lib\net451\XSockets.Server.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="mp3\Mordi - In Your Bed %28extract%29.mp3" />
     <Content Include="packages.config" />
     <Content Include="default.cshtml" />
-    <Content Include="Scripts\AudioBufferChunksPlayer.js" />
     <Content Include="Scripts\XSockets.latest.min.js.map" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -162,16 +146,21 @@
     </None>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="mp3\Glyn R Brown - Rastan.mp3" />
+    <Content Include="mp3\machinae supremacy - great gianna sisters.mp3" />
+    <Content Include="mp3\Mordi - In Your Bed %28extract%29.mp3" />
+    <Content Include="Scripts\cplayer.js" />
     <Content Include="Scripts\XSockets.latest.js" />
     <Content Include="Scripts\XSockets.latest.min.js" />
-    <Content Include="Web.config" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Controllers\AudioStream.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
+    <Compile Include="XSocketsNET\AudioStream.cs" />
   </ItemGroup>
-  <ItemGroup />
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
@@ -185,9 +174,9 @@
         <WebProjectProperties>
           <UseIIS>True</UseIIS>
           <AutoAssignPort>True</AutoAssignPort>
-          <DevelopmentServerPort>64123</DevelopmentServerPort>
+          <DevelopmentServerPort>62158</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
-          <IISUrl>http://localhost:64123/</IISUrl>
+          <IISUrl>http://localhost:62158/</IISUrl>
           <NTLMAuthentication>False</NTLMAuthentication>
           <UseCustomServer>False</UseCustomServer>
           <CustomServerUrl>

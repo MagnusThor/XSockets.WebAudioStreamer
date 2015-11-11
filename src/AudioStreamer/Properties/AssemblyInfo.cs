@@ -5,11 +5,11 @@ using System.Runtime.InteropServices;
 // General Information about an assembly is controlled through the following 
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("XVA_07_04")]
+[assembly: AssemblyTitle("AudioStreamer")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("")]
-[assembly: AssemblyProduct("XVA_07_04")]
+[assembly: AssemblyProduct("AudioStreamer")]
 [assembly: AssemblyCopyright("Copyright ©  2015")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
@@ -20,7 +20,7 @@ using System.Runtime.InteropServices;
 [assembly: ComVisible(false)]
 
 // The following GUID is for the ID of the typelib if this project is exposed to COM
-[assembly: Guid("19265362-8c83-42b0-8d24-60b19a15fed0")]
+[assembly: Guid("56c3a0f5-b2c9-4e7d-b902-ad012b2a2f5d")]
 
 // Version information for an assembly consists of the following four values:
 //

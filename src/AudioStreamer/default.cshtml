@@ -1,7 +1,7 @@
 ﻿<!DOCTYPE html>
 <html>
 <head>
-    <title>XVA-07-04 XSockets.NET - BinaryMessages, WebAudioAPI chunk player</title>
+    <title>XVA XSockets.NET - BinaryMessages, WebAudio steaming chunk playback</title>
     <style>
         audio {
             position: absolute;
@@ -9,7 +9,7 @@
             right: 10px;
         }
         li {
-            color: #337ab7;
+            color:#337ab7
         }
 
         #log {
@@ -17,98 +17,117 @@
             overflow: auto;
             min-height: 300px;
         }
-
-        div#link {
-            position: absolute;
+        mark {
+           position: absolute;
             top: 10px;
             right: 10px;
-            padding: 5px;
-            background: #dadada;
-            border: 1px solid #fafafa;
         }
     </style>
 </head>
-<body>
-    <div id="link">More great C64 remixes found on - http://remix.kwed.org</div>
-    <h1>XVA-07-04 XSockets.NET - BinaryMessages, WebAudioAPI chunk player</h1>
-    <hr />
-    Select song ( Click to start)
-    <ul id="songs"></ul>
-    <hr />
-    <h5>Message log</h5>
-    <div id="log"></div>
-    <hr />
-    <audio id="aud" autoplay controls></audio>
-    <script src="~/Scripts/XSockets.latest.js"></script>
-    <script src="~/Scripts/AudioBufferChunksPlayer.js"></script>
-    <script>
+    <body>
+        <mark>More great C64 remixes found on - remix.kwed.org</mark>
+        <h1>XVA XSockets.NET - BinaryMessages, WebAudio steaming chunk playback</h1>
+        <hr/>
+        Select song ( Click to start)
+        <ul id="songs">
         
-        function $(selector, el) {
-            if (!el) {
-                el = document;
+        </ul>
+        <hr/>
+        <h5>Message log</h5>
+        <div id="log"></div>
+        <hr/>
+        <audio id="aud" autoplay controls></audio>
+        <script src="~/Scripts/XSockets.latest.js"></script>
+        <script src="~/Scripts/cplayer.js"></script>
+        <script>
+
+            function $(selector, el) {
+                if (!el) {
+                    el = document;
+                }
+                return el.querySelector(selector);
             }
-            return el.querySelector(selector);
-        }
-        var logToScreen = function(what) {
-            var p = document.createElement("p");
-            p.innerText = JSON.stringify(what);
-            $("#log").appendChild(p);
-        };
-
-        var ws; // XSockeys.WebSocket
-        var audiostream; // XSockets.Controlelr
-        var player; // WebAudioBufferPlayer
-        var interval; // timer interval
-
-
-        document.addEventListener("DOMContentLoaded", function () {
-            var port = location.port;
-            ws = new XSockets.WebSocket("ws://" + location.hostname + ":" + port, ["audiostream"]);
-            ws.onconnected = function () {
-                logToScreen("connected");
+            var logToScreen = function(what) {
+                var p = document.createElement("p");
+                p.innerText = JSON.stringify(what);
+                $("#log").appendChild(p);
             };
-            ws.onerror = function (err) {
-                logToScreen(err);
-            };
-            ws.ondisconnected = function () {
-                logToScreen("disconnected");
-            }
-            audiostream = ws.controller("audiostream");
-            audiostream.on("songloaded", function (song) {
-                // start get the chunks
-                player = new AudioBufferChunksPlayer(); //new MediaSourceChunksPlayer("#aud");
-                logToScreen(song);
-                interval = window.setInterval(function () {
-                    audiostream.invoke("getChunk"); // ask for a new chunk each 1.5 seconds
-                }, 2000);
-            });
-            audiostream.onopen = function (ci) {
-                logToScreen(ci);
-                audiostream.on("songs", function (songs) {
-                    logToScreen(songs);
-                    songs.forEach(function (song) {
-                        var li = document.createElement("li");
-                        li.setAttribute("data-song", song);
-                        li.innerText = song;
-                        $("#songs").appendChild(li);
-                        li.addEventListener("click", function () {
-                            window.clearInterval(interval);
-                            var songname = this.getAttribute("data-song");
-                            audiostream.invoke("getSong", {
-                                name: songname
+
+            var ws;
+            var audiostream;
+            var player;
+            var interval;
+            var bytesRead = 0;
+
+            document.addEventListener("DOMContentLoaded", function () {
+      
+          
+           
+                ws = new XSockets.WebSocket("ws://" + location.hostname + ":" + location.port, ["audiostream"]);
+
+                ws.onconnected = function () {
+                    logToScreen("connected");
+                };
+                ws.onerror = function (err) {
+                    logToScreen(err);
+                };
+                ws.ondisconnected = function () {
+                    logToScreen("disconnected");
+                }
+
+                audiostream = ws.controller("audiostream");
+
+
+                audiostream.on("songloaded", function(song) {
+                    // start get the chunks
+
+                    player = new MediaSourceChunksPlayer("#aud");
+
+
+                    logToScreen(song);
+                    interval = window.setInterval(function () {
+                        audiostream.invoke("getChunk"); // ask for a new chunk each 1.5 seconds
+                    }, 1500);
+                });
+
+                audiostream.onopen = function (ci) {
+                    logToScreen(ci);
+
+
+                    audiostream.on("songs", function (songs) {
+                        logToScreen(songs);
+                        songs.forEach(function(song) {
+                            var li = document.createElement("li");
+                            console.log(li);
+                            li.setAttribute("data-song", song);
+                            li.innerText = song;
+                       
+                            $("#songs").appendChild(li);
+                            li.addEventListener("click", function () {
+                                window.clearInterval(interval);
+                                var song = this.getAttribute("data-song");
+                                // interval = window.setInterval(function () {
+                                audiostream.invoke("getSong", { name: song }); // ask for a new chunk
+                                //  }, 1500);
+
                             });
                         });
                     });
-                });
-                audiostream.invoke("getSongs");
-            };
-            audiostream.on("chunk", function (message) {
-                logToScreen(message.data);
-                if (message.data.final) window.clearInterval(interval);
-                player.addChunk(message.binary.buffer);
-            });
-        });
+                    audiostream.invoke("getSongs");
 
-    </script>
-</body>
+                };
+                audiostream.on("chunk", function (message) {
+                    logToScreen(message.data);
+                    if (message.data.final) window.clearInterval(interval);
+                    player.addChunk(message.binary.buffer);
+                });
+            });
+
+      
+       
+      
+
+ 
+        </script>
+    </body>
 </html>
