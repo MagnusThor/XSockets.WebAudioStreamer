@@ -1,15 +1,12 @@
-##XSockets.NET 4.x WebAudioAPI + BinaryMessages
+#XSockets.NET 5 WebAudioAPI + BinaryMessages
 
+## About
+This repository shows how to stream audio files in chunks and process them using WebAudio API.
+Just a POC, and you can easily replace the mp3 with other sources.
 
-
-### Installed Nuget Packages
+## Installed Nuget Packages
 
 - XSockets
-- XSockets.Owin.Host
 - XSockets.JsApi
-
-### Description
-
-This example shows how you can send binary messages ( chunked ) and process them using WebAudio API.   This example uses MP3 files but could easily be replaced with audio data from any kind of source.
 
 
